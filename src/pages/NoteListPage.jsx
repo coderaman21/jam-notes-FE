@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import ListItem from '../components/ListItem'
 
+
 const NoteListPage = () => {
     let [notes,setNotes] = useState([]);
 
@@ -20,6 +21,11 @@ const NoteListPage = () => {
 
     return (
         <div className='container'>
+            <div className="notes-header">
+                <h4 className="notes-title">&#9782; Notes</h4>
+                <p className="notes-count">{notes.length}</p>
+            </div>
+            
             <div className='p-2'>
                 {notes.map((note,index) =>(
                     <div className='mb-3 '>
@@ -27,6 +33,7 @@ const NoteListPage = () => {
                     </div>
                 ))}
             </div>
+           
         </div>
 
     )

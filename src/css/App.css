@@ -1,0 +1,94 @@
+.App {
+  text-align: center;
+}
+#root{
+  background-color: #e5fff2;
+  height: 100vh;
+}
+
+.arrow-left{
+  margin-top: 1rem;
+  width: 100%;
+  height: 3rem;
+  cursor: pointer;
+  color: #18bc9c;
+}
+.notes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+}
+
+.notes-title,
+.notes-count {
+  color: var(--color-main);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.notes-count {
+  font-size: 18px;
+  color: var(--color-gray);
+}
+.note input{
+  background-color: var(--color-white);
+  border: none;
+  padding: 10px 8px;
+  width: 100%;
+  resize: none;
+  scrollbar-width: none; /* Firefox */
+  font-size: 2rem;
+}
+.list-items{
+  box-shadow: 5px 4px 10px #46607a ;
+}
+.note textarea{
+  background-color: var(--color-white);
+  border: none;
+  padding: 16px 12px;
+  width: 100%;
+  height: 64vh;
+  resize: none;
+  scrollbar-width: none; /* Firefox */
+}
+
+.note input:active,
+.note input:focus {
+  outline: none;
+  border: none;
+}
+
+.note input::-webkit-scrollbar {
+  display: none;
+}
+.note textarea:active,
+.note textarea:focus {
+  outline: none;
+  border: none;
+}
+
+.note textarea::-webkit-scrollbar {
+  display: none;
+}
+.floating-button {
+  font-size: 48px;
+  position: absolute;
+  bottom: 24px;
+  right: 16px;
+  background: var(--color-main);
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.floating-button > svg {
+  fill: var(--color-bg);
+}
