@@ -10,7 +10,7 @@ const NoteListPage = () => {
 
     }, [])
 
-    let apiHost = process.env.REACT_APP_BACKEND_URL
+    let apiHost =  'https://jam-notes-be.vercel.app'
     
     let getNotes = async () =>{
         let response = await fetch(apiHost + '/api/note')

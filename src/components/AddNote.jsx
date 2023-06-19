@@ -4,7 +4,7 @@ import { useNavigate} from 'react-router-dom'
 
 const AddNote = () => {
     let [note,setNote] = useState({'title':'','text':''});
-    let apiHost = process.env.REACT_APP_BACKEND_URL 
+    let apiHost =  'https://jam-notes-be.vercel.app' 
     const navigate = useNavigate();
     
     let createNote = async () => {

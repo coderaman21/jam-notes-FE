@@ -11,7 +11,7 @@ const NotePage = () => {
         getNote()
     },[id])
 
-    let apiHost = process.env.REACT_APP_BACKEND_URL 
+    let apiHost =  'https://jam-notes-be.vercel.app' 
 
     let getNote = async () => {
         
