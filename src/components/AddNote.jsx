@@ -5,7 +5,7 @@ import { useNavigate} from 'react-router-dom'
 const AddNote = (props) => {
     let [note,setNote] = useState({'title':'','text':''});
     let isLoggedIn = props.isLoggedIn;
-    let apiHost =  'http://127.0.0.1:8000'
+    let apiHost =  'https://jam-notes-be.vercel.app'
 
     let [notLoggedInMsg,setNotLoggedInMsg] = useState('')
 

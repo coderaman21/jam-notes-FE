@@ -10,7 +10,7 @@ const LoginPage = (props) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   
-  let apiHost =  'http://127.0.0.1:8000'
+  let apiHost =  'https://jam-notes-be.vercel.app'
 
   const headers = {
     'Content-Type': 'application/json',

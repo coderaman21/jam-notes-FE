@@ -5,13 +5,13 @@ import {ReactComponent as ArrowLeft} from '../assests/arrow-left.svg'
 const NotePage = (props) => {
     let {id} = useParams();
     let isLoggedIn = props.isLoggedIn;
-    let [note,setNote] = useState(null);
+    let [note,setNote] = useState({"text":'','title':''});
   
     
     const navigate = useNavigate();
 
 
-    let apiHost =  'http://127.0.0.1:8000' 
+    let apiHost =  'https://jam-notes-be.vercel.app' 
 
     const headers = {
         'Content-Type': 'application/json',

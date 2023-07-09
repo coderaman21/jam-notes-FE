@@ -23,7 +23,7 @@ const NoteListPage = (props) => {
         }
     }, [])
 
-    let apiHost =  'http://127.0.0.1:8000'
+    let apiHost =  'https://jam-notes-be.vercel.app'
     
     let getNotes = async () =>{
 
