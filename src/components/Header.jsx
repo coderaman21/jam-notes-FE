@@ -1,26 +1,49 @@
 import React,{useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,useLocation,useNavigate} from 'react-router-dom'
+
 
 
 
 const Header = (props) => {
   let isLoggedIn = props.isLoggedIn;
-  let setIsLoggedIn = props.setIsLoggedIn
+  let setIsLoggedIn = props.setIsLoggedIn;
+  const navigate = useNavigate();
+  const location = useLocation();
+  let currentPath = location.pathname;
+
+  const handleLogOut = () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    setIsLoggedIn(false);
+    if (currentPath == '/'){
+      window.location.reload();
+    }
+      
+    navigate('/');
+  }
+
 
   const BeforeSignin = () => {
     return <div>
-      
-        <button className='btn btn-success me-sm-2' type='button'>Sign In</button>
+          <Link to='/login' style={{ textDecoration:'none' }}>
+            <button className='btn btn-outline-success me-sm-2 text-white' type='button'>Sign In</button>
+          </Link>
+
+          <Link to='/signup' style={{ textDecoration:'none' }}>
+            <button className='btn btn-outline-success me-sm-2 text-white' type='button'>Sign Up</button>
+          </Link>
       </div>
 
   }
   const AfterSignin = () => {
     return <div>
-      <button className='btn btn-danger mr-2'>Log Out</button>
-    </div>
+              <button className='btn btn-outline-danger mr-2 text-white' onClick={handleLogOut}>Log Out</button> 
+          </div>
   }
+
   return <>
-    
+      {
+        currentPath !== '/login' && currentPath !== '/signup'?
         <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
           <div className="container-fluid">
             <Link to={'/'} style={{ textDecoration:'none' }}>
@@ -37,9 +60,11 @@ const Header = (props) => {
                   </Link>
                 </li>
                 <li className="nav-item">
+                  
                   <Link to={'/note/add'} style={{ textDecoration:'none' }}>
                     <span className="nav-link" href="#">New Note</span>
                   </Link>
+                
                 </li>
                   {/*......................... code to change themes................. */}
                   {/* <li className="nav-item ">
@@ -53,19 +78,23 @@ const Header = (props) => {
                   </li> */}
               </ul>
               {/* sign in / logout buttons */}
-              {/* <div className="d-flex">
+              <div className="d-flex">
                 {
                   isLoggedIn ?
                   <AfterSignin/>
                   :
                   <BeforeSignin/> 
                 }
-              </div> */}
+              </div>
             
             </div>
           </div>
         </nav>
-  
+        
+        :
+        null
+      
+      }
   </>
 }
 

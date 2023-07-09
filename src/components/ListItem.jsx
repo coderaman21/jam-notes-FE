@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import TextSlicer from './TextSlicer'
 
 const ListItem = ({note}) => {
+  
   const GetTime = (time)=>{
     return new Date(time).toLocaleDateString()
   }
+  
   return <>
         <Link to={`/note/${note.id}`} style={{ textDecoration:'none' }}>
           <div className="list-group list-items">
