@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import {ReactComponent as ArrowLeft} from '../assests/arrow-left.svg'
 import { useNavigate} from 'react-router-dom'
 
@@ -7,16 +7,8 @@ const AddNote = (props) => {
     let isLoggedIn = props.isLoggedIn;
     let apiHost =  'https://jam-notes-be.vercel.app'
 
-    let [notLoggedInMsg,setNotLoggedInMsg] = useState('')
-
     const navigate = useNavigate();
-    useEffect ( () =>{
-        if (!isLoggedIn){
-            setNotLoggedInMsg('You are not Logged in , please login to view your notes')
-        }
-
-    })
-
+ 
     const headers = {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
@@ -45,7 +37,7 @@ const AddNote = (props) => {
     return <>
             <div className='note container my-3'>
                 <div className='d-flex'>
-                    <input type="text" value={notLoggedInMsg} onChange={(e) =>{setNote({...note,'title':e.target.value})}} placeholder='title'/>
+                    <input type="text" value={note?.title} onChange={(e) =>{setNote({...note,'title':e.target.value})}} placeholder='title'/>
                     <h1>
                         
                         <ArrowLeft className='arrow-left' onClick={handleSubmit} />
